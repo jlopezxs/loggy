@@ -1,30 +1,24 @@
-var emoji = require('node-emoji');
 const Loggy = require('../lib/index').default;
 
-const a = 'b';
-const cls = new Loggy({
+new Loggy({
   label: {
     log: 'info'
   },
-  logFormat: ':icon :timestamp · :label · :message',
+  logFormat: ':timestamp :icon :label » :message',
   timestampFormat: 'H:mm:ss',
-  show: {
-    log: (a === 'b'),
-    warn: (a === 'b'),
-    error: (a === 'b')
-  },
   colors: {
-    log: 'magenta',
-    warn: 'cyan',
-    error: 'green'
+    success: 'green'
   },
+  methods: ['log', 'warn', 'error', 'success'],
   icons: {
-    log: 'i',
-    warn: ':warning:',
-    error: ':fire:'
-  }
+    success: '√'
+  },
+  jsonPretty: false,
+  overrideConsole: true
 });
 
-cls.log([1, 2, 3, 4]);
-cls.warn('test', 1, 2, 3, 4);
-cls.error('ERROR', {a:[1, 2, 4]});
+console.log('This is only a logger?', '😱');
+console.warn('Fire?', '🔥', 1, 2, 3);
+console.error('Uncaught ReferenceError: Loggy is not defined');
+//TODO Fix custom methods output when override console
+console.success('It seems that this is working well', ['success', '√']);

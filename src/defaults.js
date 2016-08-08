@@ -1,4 +1,4 @@
-const METHODS = ['log', 'warn', 'error'];
+const METHODS = ['log', 'warn', 'error', 'success'];
 const COLORS = {
   log: 'blue',
   warn: 'yellow',
@@ -18,4 +18,4 @@ export default {
   ICONS,
   TIMESTAMP_FORMAT,
   LOG_FORMAT
-}
+};
