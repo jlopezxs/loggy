@@ -5,6 +5,10 @@
   "description": "console wrapper",
   "license": "Apache-2.0",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jlopezxs/loggy.git"
+  },
   "scripts": {
     "example": "npm run build && node example/index",
     "build": "rm -rf lib && babel src -d lib --source-maps",
