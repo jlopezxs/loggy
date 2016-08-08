@@ -1,8 +1,8 @@
 const METHODS = ['log', 'warn', 'error'];
 const COLORS = {
-  log: 33,
-  warn: 208,
-  error: 160
+  log: 'blue',
+  warn: 'yellow',
+  error: 'red'
 };
 const ICONS = {
   log: 'i',

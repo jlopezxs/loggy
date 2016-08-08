@@ -1,6 +1,7 @@
-import clc from 'cli-color';
+import chalk from 'chalk';
 import moment from 'moment';
 import defaults from './defaults';
+
 export default class Loggy {
   constructor({
     label = {},
@@ -27,7 +28,7 @@ export default class Loggy {
   _setColorMethod(colors) {
     const colorsKeys = Object.keys(colors);
     colorsKeys.forEach(colorKey => {
-      colors[colorKey] = clc.xterm(colors[colorKey]);
+      colors[colorKey] = chalk[colors[colorKey]];
     });
     return colors;
   }
@@ -51,7 +52,7 @@ export default class Loggy {
     const colorMethod = this._colors[methodName];
     const label = this._label[methodName] ? colorMethod(this._label[methodName]) : colorMethod(methodName);
     const icon = colorMethod(this._icons[methodName]);
-    const timestamp = clc.xterm(8)(moment().format(this._timestampFormat));
+    const timestamp = chalk.gray(moment().format(this._timestampFormat));
     const message = Array.prototype.slice.call(args);
 
     return this._formatEngine({

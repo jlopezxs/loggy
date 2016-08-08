@@ -5,11 +5,22 @@ const cls = new Loggy({
   label: {
     log: 'info'
   },
-  //logFormat: ':timestamp :icon :message',
+  logFormat: ':timestamp · :label · :message',
+  timestampFormat: 'H:mm:ss',
   show: {
     log: (a === 'b'),
     warn: (a === 'b'),
     error: (a === 'b')
+  },
+  colors: {
+    log: 'magenta',
+    warn: 'cyan',
+    error: 'green'
+  },
+  icons: {
+    log: 'i',
+    warn: '‼',
+    error: '×'
   }
 });
 
