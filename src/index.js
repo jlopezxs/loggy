@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import moment from 'moment';
+import emoji from 'node-emoji';
 import defaults from './defaults';
 
 export default class Loggy {
@@ -51,7 +52,7 @@ export default class Loggy {
   _format({ methodName, args }) {
     const colorMethod = this._colors[methodName];
     const label = this._label[methodName] ? colorMethod(this._label[methodName]) : colorMethod(methodName);
-    const icon = colorMethod(this._icons[methodName]);
+    const icon = colorMethod(emoji.emojify(this._icons[methodName]));
     const timestamp = chalk.gray(moment().format(this._timestampFormat));
     const message = Array.prototype.slice.call(args);
 

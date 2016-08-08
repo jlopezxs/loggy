@@ -1,3 +1,4 @@
+var emoji = require('node-emoji');
 const Loggy = require('../lib/index').default;
 
 const a = 'b';
@@ -5,7 +6,7 @@ const cls = new Loggy({
   label: {
     log: 'info'
   },
-  logFormat: ':timestamp · :label · :message',
+  logFormat: ':icon :timestamp · :label · :message',
   timestampFormat: 'H:mm:ss',
   show: {
     log: (a === 'b'),
@@ -19,8 +20,8 @@ const cls = new Loggy({
   },
   icons: {
     log: 'i',
-    warn: '‼',
-    error: '×'
+    warn: ':warning:',
+    error: ':fire:'
   }
 });
 
